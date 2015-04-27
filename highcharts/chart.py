@@ -30,11 +30,11 @@ DEFAULT_HEADERS = """<script type='text/javascript' src=\
 <script src="http://code.highcharts.com/highcharts-more.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>"""
 
-ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
+ROOT_PATH = os.path.split(__file__)[0]
 # Static Vars
-BASE_TEMPLATE = ROOT_PATH + "/highcharts/templates/base.tmp"
-SHOW_TEMPLATE = ROOT_PATH + "/highcharts/templates/show_temp.tmp"
-GECKO_TEMPLATE = ROOT_PATH + "/highcharts/templates/gecko_temp.tmp"
+BASE_TEMPLATE = ROOT_PATH + "/templates/base.tmp"
+SHOW_TEMPLATE = ROOT_PATH + "/templates/show_temp.tmp"
+GECKO_TEMPLATE = ROOT_PATH + "/templates/gecko_temp.tmp"
 
 DEFAULT_POINT_INTERVAL = 86400000
 
@@ -418,9 +418,9 @@ class Highchart(object):
         handle.open("file://"+new_fn)
 
 
-    def generate(self):
+    def generate(self, template="base"):
         """ __render__ Wrapper """
-        return self.__render__(ret=True)
+        return self.__render__(ret=True, template=template)
 
 
     def set_yAxis(self, *axis):
