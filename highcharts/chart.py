@@ -6,15 +6,15 @@ browser enabled charts on the fly.
 For Highcharts Licencing Visit: 
 http://shop.highsoft.com/highcharts.html
 """
-from PyHighcharts.highcharts.options import ChartOptions, \
+from highcharts.options import ChartOptions, \
     ColorsOptions, CreditsOptions, ExportingOptions, \
     GlobalOptions, LabelsOptions, LangOptions, \
     LegendOptions, LoadingOptions, NavigationOptions, PaneOptions, \
     PlotOptions, SeriesData, SubtitleOptions, TitleOptions, \
     TooltipOptions, xAxisOptions, yAxisOptions 
 
-from PyHighcharts.highcharts.highchart_types import Series, SeriesOptions, HighchartsError, MultiAxis
-from PyHighcharts.highcharts.common import Formatter
+from highcharts.highchart_types import Series, SeriesOptions, HighchartsError, MultiAxis
+from highcharts.common import Formatter
 
 
 
@@ -32,9 +32,9 @@ DEFAULT_HEADERS = """<script type='text/javascript' src=\
 
 ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
 # Static Vars
-BASE_TEMPLATE = ROOT_PATH + "/templates/base.tmp"
-SHOW_TEMPLATE = ROOT_PATH + "/templates/show_temp.tmp"
-GECKO_TEMPLATE = ROOT_PATH + "/templates/gecko_temp.tmp"
+BASE_TEMPLATE = ROOT_PATH + "/highcharts/templates/base.tmp"
+SHOW_TEMPLATE = ROOT_PATH + "/highcharts/templates/show_temp.tmp"
+GECKO_TEMPLATE = ROOT_PATH + "/highcharts/templates/gecko_temp.tmp"
 
 DEFAULT_POINT_INTERVAL = 86400000
 
@@ -182,7 +182,7 @@ def chart_formatter(option_type, data):
             if not i == len(data['axis']):
                 tmp += "\t},{\n"
         tmp += "\t}]"
-        print tmp
+        # print tmp
     else:
         tmp += "{\n" 
         for key, val in data.items():

@@ -2,7 +2,7 @@
 """ PyHighcharts: examples.py
 Basic Examples 
 """
-from PyHighcharts.highcharts.chart import Highchart
+from highcharts.chart import Highchart
 import math, random
 
 EXAMPLE_CONFIG = {
